@@ -1,0 +1,4 @@
+<!--pages/dynamic/city/index.wxml-->
+ <toast hidden="{{isHiddenToast}}" stytle="display:flex  width:100rpx" duration="1000" bindchange="toastChange">
+    努力开发中...
+  </toast>

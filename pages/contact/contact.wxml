@@ -1,0 +1,72 @@
+<view stytle=" overflow-x: hidden; overflow-y: auto;">
+  <view class="serach">
+    <input class="serach_view_show" auto-focus placeholder="搜索" />
+  </view>
+  <view class="message__list">
+    <view class='line'></view>
+    <view class="item-tree">
+      <view class='big-title kind-list-item-hd navigator-arrow'>新朋友</view>
+    </view>
+    <view class="item-tree">
+      <view class='big-title kind-list-item-hd navigator-arrow'>创建群聊
+        <view class='mark right'>新</view>
+      </view>
+    </view>
+    <view class='line marigin-top'></view>
+    <!-- 导航 -->
+    <view wx:if="{{tab_config.fixed}}" class="tab-bar">
+      <view wx:for="{{tab_config.tabs}}" wx:key="unique" data-index="{{index}}" bindtap="handlerTabTap" class="tab {{tab_config.active_tab==index?'tab-active':''}} " style="width: {{tab_config.item_width}}px;">
+        <text>{{item}}</text>
+      </view>
+      <view style="width: {{tab_config.item_width-tab_config.underline.margins}}px; left: {{tab_config.underline.offset}}px;" class="under-line withAnimate"></view>
+    </view>
+    <scroll-view wx:else class="tab-bar" scroll-x="true" bindscroll="onScroll" style="width: 100%;" scroll-left="{{tab_config.tab_left}}">
+      <view wx:for="{{tab_config.tabs}}" wx:key="unique" data-index="{{index}}" bindtap="handlerTabTap" class="tab {{tab_config.active_tab==index?'tab-active':''}} " style="width: {{tab_config.item_width}}px;">
+        <text>{{item}}</text>
+      </view>
+      <view style="width: {{tab_config.item_width-tab_config.underline.margins}}px; left: {{tab_config.underline.offset+10}}px;" class="under-line withAnimate"></view>
+    </scroll-view>
+    <!-- 滑动页面 -->
+    <swiper class='swiper' bindchange='bindChange' current='{{swipe_config.current}}' indicator-dots='{{swipe_config.indicator_dots}}' autoplay='{{swipe_config.autoplay}}'>
+      <block wx:for="{{menuList}}" wx:for-item='orders' wx:key="orders.list">
+        <swiper-item class='swiper-item'>
+          <block wx:for-items="{{orders.list}}" wx:for-item='list' wx:key="{{list.id}}">
+            <view class="item-tree">
+              <view id="{{list.id}}" class="kind-list-item-hd" bindtap="kindToggle">
+                <view class="title ">{{list.name}}</view>
+                <!-- <image class="kind-list-img" src="resources/kind/{{item.id}}.png"></image> -->
+              </view>
+              <view class="kind-list-item-bd {{list.open ? 'kind-list-item-bd-show' : ''}}">
+                <!-- <view class="navigator-box {{list.open ? 'navigator-box-show' : ''}}"> -->
+
+                  <block wx:for-items="{{list.pages}}" wx:for-item="page" wx:key="*item">
+
+                    <block wx:for-items="{{page.vip}}" wx:for-item="pae" wx:key="page">
+                      <navigator url="pages/{{pae.id}}/index" class="navigator">
+                        <!-- <view class="navigator-text">{{pae.name}}</view> -->
+                        <view class="item">
+                          <view class="item-left">
+                            <image src="{{pae.icon}}" class="image" />
+                          </view>
+                          <view class="item-middle">
+                            <view>
+                              <text class="big-title left-10">{{pae.name}}</text>
+                            </view>
+                            <view>
+                              <text class="message left-10">{{pae.desc}}</text>
+                            </view>
+                          </view>
+                        </view>
+                      </navigator>
+                    </block>
+                  </block>
+                <!-- </view> -->
+              </view>
+            </view>
+          </block>
+        </swiper-item>
+      </block>
+
+    </swiper>
+  </view>
+</view>

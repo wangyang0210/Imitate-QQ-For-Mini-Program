@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/contact/contact",
+    "pages/dynamic/dynamic",
+    "pages/home/chat/chat",
+    "pages/dynamic/city/index",
+    "pages/dynamic/game/index",
+    "pages/dynamic/live/index",
+    "pages/dynamic/music/index",
+    "pages/dynamic/pe/index",
+    "pages/dynamic/tencentClass/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#12b7f4",
+    "navigationBarTitleText": "WeChat-QQ",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#fbf9fe"
+  },
+  "tabBar": {
+    "color": "#9B9DB1",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "images/tab_message_normal.png",
+        "selectedIconPath": "images/tab_message_selected.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/contact/contact",
+        "iconPath": "images/tab_contact_normal.png",
+        "selectedIconPath": "images/tab_contact_selected.png",
+        "text": "联系人"
+      },
+      {
+        "pagePath": "pages/dynamic/dynamic",
+        "iconPath": "images/tab_dynamic_normal.png",
+        "selectedIconPath": "images/tab_dynamic_selected.png",
+        "text": "动态"
+      }
+    ]
+  }
+}
