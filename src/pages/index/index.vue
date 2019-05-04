@@ -5,12 +5,13 @@
         <div
           class="cu-item"
           :class="modalName=='move-box-'+ index?'move-cur':''"
-          v-for="(item,index) in 2"
+          v-for="(item,index) in 10"
           :key="index"
           @touchstart="ListTouchStart"
           @touchmove="ListTouchMove"
           @touchend="ListTouchEnd"
           :data-target="'move-box-' + index"
+          @click="enterChat"
         >
           <div
             class="cu-avatar round lg"
