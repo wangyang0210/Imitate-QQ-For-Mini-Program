@@ -5,7 +5,7 @@
         <div
           class="cu-item"
           :class="modalName=='move-box-'+ index?'move-cur':''"
-          v-for="(item,index) in 10"
+          v-for="(item,index) in 8"
           :key="index"
           @touchstart="ListTouchStart"
           @touchmove="ListTouchMove"
@@ -73,6 +73,11 @@ export default {
         this.modalName = null
       }
       this.listTouchDirection = null
+    },
+
+    // 进入聊天界面
+    enterChat () {
+      mpvue.navigateTo({url: '/pages/chat/main'})
     }
   }
 }

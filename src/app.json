@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/chat/main",
+    "pages/dynamic/main",
     "pages/index/main",
     "pages/contact/main",
-    "pages/dynamic/main"
+    "pages/chat/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
