@@ -18,7 +18,7 @@
             :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
           ></div>
           <div class="content">
-            <div class="text-grey">文晓港</div>
+            <div class="text-grey">王洋</div>
             <div class="text-gray text-sm">
               <text class="cuIcon-infofill text-red margin-right-xs"></text>消息未送达
             </div>

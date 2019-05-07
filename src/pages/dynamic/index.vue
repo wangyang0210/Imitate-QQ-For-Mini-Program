@@ -1,9 +1,57 @@
 <template>
   <div>
-    <div class="flex  p-xs margin-bottom-sm mb-sm">
-      <div class="flex-sub bg-grey padding-sm margin-xs radius">1</div>
-      <div class="flex-sub bg-grey padding-sm margin-xs radius">2</div>
-      <div class="flex-sub bg-grey padding-sm margin-xs radius">3</div>
+    <div class="flex  p-xs margin-bottom-sm bg-white mb-sm">
+      <div class="flex-sub text-center padding-sm margin-xs radius iconfont icon-dong">
+          <div class="text-lg padding text-black">好友动态</div>
+      </div>
+      <div class="flex-sub text-center padding-sm margin-xs radius iconfont icon-fujin">
+          <div class="text-lg padding text-black">附近</div>
+      </div>
+      <div class="flex-sub text-center padding-sm margin-xs radius iconfont icon-shouqbula">
+          <div class="text-lg padding text-black">兴趣部落</div>
+      </div>
+    </div>
+
+    <div class="cu-list menu bg-white">
+        <div class="cu-item arrow solid-bottom" >
+            <div class="content">
+                <text class="iconfont icon-youxi margin-right-lg"></text>
+                <text class="text-black text-df text-bold"> 游戏</text>
+            </div>
+        </div>
+        <div class="cu-item arrow solid-bottom" >
+            <div class="content">
+                <text class="iconfont icon-musics margin-right-lg"></text>
+                <text class="text-black text-df text-bold">音乐</text>
+            </div>
+        </div>
+        <div class="cu-item arrow solid-bottom" >
+            <div class="content">
+                <text class=" iconfont icon-shexiangji1 margin-right-lg "></text>
+                <text class="text-black text-df text-bold">直播</text>
+            </div>
+        </div>
+    </div>
+
+    <div class="cu-list menu bg-white">
+        <div class="cu-item arrow solid-bottom" >
+            <div class="content">
+                <text class="iconfont icon-qiqiu margin-right-lg"></text>
+                <text class="text-black text-df text-bold"> 同城服务</text>
+            </div>
+        </div>
+        <div class="cu-item arrow solid-bottom" >
+            <div class="content">
+                <text class="iconfont icon-yundong margin-right-lg"></text>
+                <text class="text-black text-df text-bold">运动</text>
+            </div>
+        </div>
+        <div class="cu-item arrow solid-bottom" >
+            <div class="content">
+                <text class="iconfont icon-tengxunketang margin-right-lg"></text>
+                <text class="text-black text-df text-bold">腾讯课堂</text>
+            </div>
+        </div>
     </div>
   </div>
 </template>
@@ -11,54 +59,55 @@
 
 
 <style scoped>
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+/** 
+ *字体图标 
+ */
+
+/** 第一部分 **/
+.icon-dong, .icon-fujin, .icon-shouqbula {
+    font-size: 36px;
+}
+.icon-dong, .icon-shouqbula {
+    color: #FFD700;
+}
+.icon-fujin {
+    color:#f36666;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+/** 第二部分 **/
+.icon-tengxunketang, .icon-musics, .icon-yundong {
+    font-size: 23px;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.icon-youxi, .icon-qiqiu, .icon-shexiangji1 {
+    font-size: 20px;
 }
 
-.usermotto {
-  margin-top: 150px;
+.icon-youxi, .icon-tengxunketang, .icon-yundong {
+    color: #00aeef;
+}
+.icon-musics {
+    color: #31c27c;
+}
+.icon-shexiangji1 {
+    color: #f64e78;
+    display: inline-block;
+    -moz-transform:scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
+}
+.icon-qiqiu {
+    color:#f0664b;
+    display: inline-block;
+    -moz-transform:scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
 }
 
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-.all{
-  width:7.5rem;
-  height:1rem;
-  background-color:blue;
-}
-.all:after{
-  display:block;
-  content:'';
-  clear:both;
-}
-.left{
-  float:left;
-  width:3rem;
-  height:1rem;
-  background-color:red;
-}
 
-.right{
-  float:left;
-  width:4.5rem;
-  height:1rem;
-  background-color:green;
-}
+
+
 </style>
