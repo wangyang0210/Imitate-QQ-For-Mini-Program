@@ -1,11 +1,12 @@
+/* eslint-disable no-unused-vars */
 import { getUserInfo } from './auth.js'
-function formatNumber(n) {
+function formatNumber (n) {
   const str = n.toString()
   return str[1] ? str : `0${str}`
 }
 
-export function formatTime(date) {
-  console.log(date);
+export function formatTime (date) {
+  console.log(date)
   date = new Date(date)
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -22,41 +23,41 @@ export function formatTime(date) {
 }
 
 // 设置底部tabbar
-export function setTabbar(type) {
+export function setTabbar (type) {
   let tabBarItems = []
   if (type == 1) {
     tabBarItems = [{
-      "text": "消息",
-      "pagePath": "pages/card/main",
-      "iconPath": "static/tabs/message.png",
-      "selectedIconPath": "static/tabs/message-active.png"
+      'text': '消息',
+      'pagePath': 'pages/card/main',
+      'iconPath': 'static/tabs/message.png',
+      'selectedIconPath': 'static/tabs/message-active.png'
     }, {
-      "text": "客户",
-      "pagePath": "pages/market/main",
-      "iconPath": "static/tabs/customer.png",
-      "selectedIconPath": "static/tabs/customer-active.png"
+      'text': '客户',
+      'pagePath': 'pages/market/main',
+      'iconPath': 'static/tabs/customer.png',
+      'selectedIconPath': 'static/tabs/customer-active.png'
     }, {
-      "text": "个人中心",
-      "pagePath": "pages/center/main",
-      "iconPath": "static/tabs/emp.png",
-      "selectedIconPath": "static/tabs/emp-active.png"
+      'text': '个人中心',
+      'pagePath': 'pages/center/main',
+      'iconPath': 'static/tabs/emp.png',
+      'selectedIconPath': 'static/tabs/emp-active.png'
     }]
   } else if (type == 0) {
     [{
-      "text": "名片",
-      "pagePath": "pages/card/main",
-      "iconPath": "static/tabs/card.png",
-      "selectedIconPath": "static/tabs/card-active.png"
+      'text': '名片',
+      'pagePath': 'pages/card/main',
+      'iconPath': 'static/tabs/card.png',
+      'selectedIconPath': 'static/tabs/card-active.png'
     }, {
-      "text": "保险超市",
-      "pagePath": "pages/market/main",
-      "iconPath": "static/tabs/market.png",
-      "selectedIconPath": "static/tabs/market-active.png"
+      'text': '保险超市',
+      'pagePath': 'pages/market/main',
+      'iconPath': 'static/tabs/market.png',
+      'selectedIconPath': 'static/tabs/market-active.png'
     }, {
-      "text": "会员中心",
-      "pagePath": "pages/center/main",
-      "iconPath": "static/tabs/center.png",
-      "selectedIconPath": "static/tabs/center-active.png"
+      'text': '会员中心',
+      'pagePath': 'pages/center/main',
+      'iconPath': 'static/tabs/center.png',
+      'selectedIconPath': 'static/tabs/center-active.png'
     }]
   }
   tabBarItems.forEach((item, index) => {
@@ -69,64 +70,63 @@ export function setTabbar(type) {
   })
 }
 
-/*去掉首尾空格*/
-export function trimSpace(str) {
-  return str.replace(/^\s+/g, '').replace(/\s+$/g, '');
+/* 去掉首尾空格 */
+export function trimSpace (str) {
+  return str.replace(/^\s+/g, '').replace(/\s+$/g, '')
 }
 
-export function formatMobileNum(mobileNum) {
-  var collapsedNum = mobileNum.replace(/[^0-9]/ig, "");
-  var subNum = collapsedNum.substr(0, 11);
-  var length = subNum.length;
-  var mobileNumToDisplay;
+export function formatMobileNum (mobileNum) {
+  var collapsedNum = mobileNum.replace(/[^0-9]/ig, '')
+  var subNum = collapsedNum.substr(0, 11)
+  var length = subNum.length
+  var mobileNumToDisplay
   if (length >= 4 && length < 8) {
-    var first4 = subNum.substr(0, 3) + " ";
-    mobileNumToDisplay = subNum.replace(/^[0-9]{3}/, first4);
+    var first4 = subNum.substr(0, 3) + ' '
+    mobileNumToDisplay = subNum.replace(/^[0-9]{3}/, first4)
   } else if (length >= 8) {
-    var first9 = subNum.substr(0, 3) + " " + subNum.substr(3, 4) + " ";
-    mobileNumToDisplay = subNum.replace(/^[0-9]{7}/, first9);
+    var first9 = subNum.substr(0, 3) + ' ' + subNum.substr(3, 4) + ' '
+    mobileNumToDisplay = subNum.replace(/^[0-9]{7}/, first9)
   } else {
-    mobileNumToDisplay = subNum;
+    mobileNumToDisplay = subNum
   }
-  return mobileNumToDisplay;
+  return mobileNumToDisplay
 }
 
-//验证手机号码是否合法
-export function validateMobile(mobile) {
-  var mobile = mobile.replace(/\s/g, '');
+// 验证手机号码是否合法
+export function validateMobile (mobile) {
+  var mobile = mobile.replace(/\s/g, '')
   if (!(/^(1[3-9][0-9])[0-9]{8}$/.test(mobile))) {
-    return false;
+    return false
   } else {
-    return true;
+    return true
   }
 }
 
-export function validateCarriage(carriage) {
-  var carriage = carriage.replace(/\s/g, '');
+export function validateCarriage (carriage) {
+  var carriage = carriage.replace(/\s/g, '')
   if (!(/^[a-zA-Z0-9]{17}$/.test(carriage))) {
-    return false;
+    return false
   } else {
-    return true;
+    return true
   }
 }
 
-export function validateMotor(motor) {
-  var motor = motor.replace(/\s/g, '');
+export function validateMotor (motor) {
+  var motor = motor.replace(/\s/g, '')
   if (!(/^[a-zA-Z0-9]{8}$/.test(motor))) {
-    return false;
+    return false
   } else {
-    return true;
+    return true
   }
 }
 
-
-export function getQuery() {
+export function getQuery () {
   /* 获取当前路由栈数组 */
   const pages = getCurrentPages()
   const currentPage = pages[pages.length - 1]
   const options = currentPage.options
   return options
-} 
+}
 export default {
   formatNumber,
   formatTime,

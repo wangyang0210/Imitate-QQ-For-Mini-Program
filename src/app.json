@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/contact/main",
     "pages/dynamic/main",
     "pages/index/main",
-    "pages/contact/main",
     "pages/chat/main"
   ],
   "window": {
