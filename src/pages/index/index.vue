@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="cu-bar bg-white search flex" >
+      <div class="search-form round">
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="搜索" confirm-type="search" @input="searchIcon">
+      </div>
+    </div>
     <scroll-view :scroll-y="modalName==null" class="page" :class="modalName!=null?'show':''">
       <div class="cu-list menu-avatar">
         <div
@@ -79,6 +85,22 @@ export default {
     enterChat () {
       mpvue.navigateTo({url: '/pages/chat/main'})
     }
+
+    // 搜索框
+    // searchIcon (e) {
+    //   let key = e.detail.value.toLowerCase()
+    //   let list = this.icon
+    //   for (let i = 0; i < list.length; i++) {
+    //     let a = key
+    //     let b = list[i].name.toLowerCase()
+    //     if (b.search(a) !== -1) {
+    //       list[i].isShow = true
+    //     } else {
+    //       list[i].isShow = false
+    //     }
+    //   }
+    //   this.icon = list
+    // }
   }
 }
 </script>

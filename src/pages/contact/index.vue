@@ -1,57 +1,49 @@
 <template>
-  <div>联系人</div>
+  <div>
+    <div class="cu-bar bg-white search flex" >
+      <div class="search-form round">
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="搜索" confirm-type="search" @input="searchIcon">
+      </div>
+    </div>
+    <div class="cu-list menu bg-white flex">
+      <div class="cu-item arrow solid-bottom">
+        <div class="content">
+          <text class="text-black text-df text-bold">新朋友</text>
+        </div>
+      </div>
+      <div class="cu-item arrow solid-bottom">
+        <div class="content">
+          <text class="text-black text-df text-bold">创建群聊</text>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
+<script>
+export default {
+  data () {
+    return {}
+  },
+  methods: {
+    // searchIcon (e) {
+    //   let key = e.detail.value.toLowerCase()
+    //   let list = this.icon
+    //   for (let i = 0; i < list.length; i++) {
+    //     let a = key
+    //     let b = list[i].name.toLowerCase()
+    //     if (b.search(a) !== -1) {
+    //       list[i].isShow = true
+    //     } else {
+    //       list[i].isShow = false
+    //     }
+    //   }
+    //   this.icon = list
+    // }
+  }
+}
+</script>
 
 <style scoped>
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 150px;
-}
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-.all{
-  width:7.5rem;
-  height:1rem;
-  background-color:blue;
-}
-.all:after{
-  display:block;
-  content:'';
-  clear:both;
-}
-.left{
-  float:left;
-  width:3rem;
-  height:1rem;
-  background-color:red;
-}
-
-.right{
-  float:left;
-  width:4.5rem;
-  height:1rem;
-  background-color:green;
-}
 </style>
