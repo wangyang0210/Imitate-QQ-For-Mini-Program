@@ -15,16 +15,34 @@
       <div class="cu-item arrow solid-bottom">
         <div class="content">
           <text class="text-black text-df text-bold">创建群聊</text>
+            <div class="cu-tag round bg-red sm fr">新</div>
         </div>
       </div>
     </div>
+
+    <van-tabs 
+    @active="active" 
+    @change="onChange"
+    swipe-threshold="5"
+    swipeable="true"
+    animated="true"
+    color="#00aeef"
+    >
+        <van-tab title="好友">内容 1</van-tab>
+        <van-tab title="群聊">内容 2</van-tab>
+        <van-tab title="设备">内容 3</van-tab>
+        <van-tab title="通讯录">内容 4</van-tab>
+        <van-tab title="公众号">内容 5</van-tab>
+    </van-tabs>
   </div>
 </template>
 
 <script>
 export default {
   data () {
-    return {}
+    return {
+      active: 0
+    }
   },
   methods: {
     // searchIcon (e) {
@@ -41,9 +59,25 @@ export default {
     //   }
     //   this.icon = list
     // }
+
+    onChange (e) {
+      console.log(e)
+    }
   }
 }
 </script>
 
 <style scoped>
+.cu-list.menu>.cu-item .content .cu-tag.sm {
+  display:inline-block;
+  margin-left:5px;
+  height:18px;
+  font-size:9px;
+  line-height:19px;
+  margin-top:3px;
+}
+.text-qq-blue {
+  color:#00aeef
+}
+
 </style>
