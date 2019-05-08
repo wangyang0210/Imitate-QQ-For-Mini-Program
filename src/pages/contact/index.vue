@@ -28,7 +28,7 @@
     animated="true"
     color="#00aeef"
     >
-        <van-tab title="好友">内容 1</van-tab>
+        <van-tab tab-active-class="color:#00aeef" title="好友">内容 1</van-tab>
         <van-tab title="群聊">内容 2</van-tab>
         <van-tab title="设备">内容 3</van-tab>
         <van-tab title="通讯录">内容 4</van-tab>
@@ -75,9 +75,6 @@ export default {
   font-size:9px;
   line-height:19px;
   margin-top:3px;
-}
-.text-qq-blue {
-  color:#00aeef
 }
 
 </style>
