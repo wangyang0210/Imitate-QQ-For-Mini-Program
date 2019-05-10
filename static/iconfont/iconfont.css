@@ -1,12 +1,12 @@
 @font-face {
-  font-family: 'iconfont';  /* project id 1178369 */
-  src: url('//at.alicdn.com/t/font_1178369_pxmgw89wnz.eot');
-  src: url('//at.alicdn.com/t/font_1178369_pxmgw89wnz.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1178369_pxmgw89wnz.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1178369_pxmgw89wnz.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1178369_pxmgw89wnz.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1178369_pxmgw89wnz.svg#iconfont') format('svg');
-}
+    font-family: 'iconfont';  /* project id 1178369 */
+    src: url('//at.alicdn.com/t/font_1178369_5wgyzfecy9w.eot');
+    src: url('//at.alicdn.com/t/font_1178369_5wgyzfecy9w.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1178369_5wgyzfecy9w.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1178369_5wgyzfecy9w.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1178369_5wgyzfecy9w.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1178369_5wgyzfecy9w.svg#iconfont') format('svg');
+  }
 
 .iconfont {
   font-family: "iconfont" !important;
@@ -17,38 +17,69 @@
 }
 
 .icon-dong:before {
-  content: "\e602";
-}
-
-.icon-fujin:before {
-  content: "\e603";
-}
-
-.icon-youxi:before {
-  content: "\e68f";
-}
-
-.icon-qiqiu:before {
-  content: "\e600";
-}
-
-.icon-musics:before {
-  content: "\e760";
-}
-
-.icon-yundong:before {
-  content: "\e609";
-}
-
-.icon-shouqbula:before {
-  content: "\e601";
-}
-
-.icon-shexiangji1:before {
-  content: "\e604";
-}
-
-.icon-tengxunketang:before {
-  content: "\e9a2";
-}
-
+    content: "\e602";
+  }
+  
+  .icon-fujin:before {
+    content: "\e603";
+  }
+  
+  .icon-tubiaozhizuomoban:before {
+    content: "\e63d";
+  }
+  
+  .icon-youxi:before {
+    content: "\e68f";
+  }
+  
+  .icon-qiqiu:before {
+    content: "\e600";
+  }
+  
+  .icon-diannao1:before {
+    content: "\e605";
+  }
+  
+  .icon-tengxunshipin:before {
+    content: "\e7e5";
+  }
+  
+  .icon-yingyongbao:before {
+    content: "\e804";
+  }
+  
+  .icon-musics:before {
+    content: "\e760";
+  }
+  
+  .icon-yundong:before {
+    content: "\e609";
+  }
+  
+  .icon-zhibo:before {
+    content: "\e617";
+  }
+  
+  .icon-shouqbula:before {
+    content: "\e601";
+  }
+  
+  .icon-qq-team:before {
+    content: "\e63e";
+  }
+  
+  .icon-shexiangji1:before {
+    content: "\e604";
+  }
+  
+  .icon-tengxunketang:before {
+    content: "\e9a2";
+  }
+  
+  .icon-qq-anquanzhongxin:before {
+    content: "\eb49";
+  }
+  
+  .icon-icon_faxianshebei:before {
+    content: "\e63f";
+  }
