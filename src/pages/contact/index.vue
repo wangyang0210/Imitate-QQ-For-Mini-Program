@@ -6,7 +6,7 @@
         <input type="text" placeholder="搜索" confirm-type="search" @input="searchIcon">
       </div>
     </div>
-    <div class="cu-list menu bg-white flex">
+    <div class="cu-list menu bg-white flex margin-bottom-lg">
       <div class="cu-item arrow solid-bottom">
         <div class="content">
           <text class="text-black text-df text-bold">新朋友</text>
@@ -22,18 +22,125 @@
 
     <van-tabs 
     @active="active" 
-    @change="onChange"
     swipe-threshold="5"
     swipeable="true"
     animated="true"
     color="#00aeef"
     >
-        <van-tab tab-active-class="color:#00aeef" title="好友">内容 1</van-tab>
+        <van-tab tab-active-class="color:#00aeef" title="好友">
+           <van-collapse :value="activeNames" @change="onChange" >
+            <van-collapse-item title="特别关心" name="1">
+              <div class="cu-list menu-avatar">
+                <div
+                class="cu-item"
+                :class="modalName=='move-box-'+ index?'move-cur':''"
+                v-for="(item,index) in 4"
+                :key="index"
+                @touchstart="ListTouchStart"
+                @touchmove="ListTouchMove"
+                @touchend="ListTouchEnd"
+                :data-target="'move-box-' + index"
+                @click="enterChat"
+                >
+                <div
+                    class="cu-avatar round lg"
+                    :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
+                ></div>
+                <div class="content">
+                    <div class="text-grey">王洋</div>
+                    <div class="text-gray text-sm">
+                    <text class=" margin-right-xs">学无止境,谦卑而行</text>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </van-collapse-item>
+            <van-collapse-item title="我的好友" name="2">
+             <div class="cu-list menu-avatar">
+                <div
+                class="cu-item"
+                :class="modalName=='move-box-'+ index?'move-cur':''"
+                v-for="(item,index) in 4"
+                :key="index"
+                @touchstart="ListTouchStart"
+                @touchmove="ListTouchMove"
+                @touchend="ListTouchEnd"
+                :data-target="'move-box-' + index"
+                @click="enterChat"
+                >
+                <div
+                    class="cu-avatar round lg"
+                    :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
+                ></div>
+                <div class="content">
+                    <div class="text-grey">明月</div>
+                    <div class="text-gray text-sm">
+                    <text class=" margin-right-xs">生活与你都不可缺少</text>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </van-collapse-item>
+            <van-collapse-item title="朋友" name="3">
+              <div class="cu-list menu-avatar">
+                <div
+                class="cu-item"
+                :class="modalName=='move-box-'+ index?'move-cur':''"
+                v-for="(item,index) in 4"
+                :key="index"
+                @touchstart="ListTouchStart"
+                @touchmove="ListTouchMove"
+                @touchend="ListTouchEnd"
+                :data-target="'move-box-' + index"
+                @click="enterChat"
+                >
+                <div
+                    class="cu-avatar round lg"
+                    :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
+                ></div>
+                <div class="content">
+                    <div class="text-grey">李四</div>
+                    <div class="text-gray text-sm">
+                    <text class=" margin-right-xs">想念和张三搞基的生活~</text>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </van-collapse-item>
+            <van-collapse-item title="同学" name="4">
+              <div class="cu-list menu-avatar">
+                <div
+                class="cu-item"
+                :class="modalName=='move-box-'+ index?'move-cur':''"
+                v-for="(item,index) in 4"
+                :key="index"
+                @touchstart="ListTouchStart"
+                @touchmove="ListTouchMove"
+                @touchend="ListTouchEnd"
+                :data-target="'move-box-' + index"
+                @click="enterChat"
+                >
+                <div
+                    class="cu-avatar round lg"
+                    :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
+                ></div>
+                <div class="content">
+                    <div class="text-grey">伊泽瑞尔</div>
+                    <div class="text-gray text-sm">
+                    <text class=" margin-right-xs">等我回来一个打十个</text>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </van-collapse-item>
+          </van-collapse>
+        </van-tab>
         <van-tab title="群聊">内容 2</van-tab>
         <van-tab title="设备">内容 3</van-tab>
         <van-tab title="通讯录">内容 4</van-tab>
         <van-tab title="公众号">内容 5</van-tab>
     </van-tabs>
+    
   </div>
 </template>
 
@@ -41,7 +148,8 @@
 export default {
   data () {
     return {
-      active: 0
+      active: 0,
+      activeNames: ['1']
     }
   },
   methods: {
@@ -59,9 +167,8 @@ export default {
     //   }
     //   this.icon = list
     // }
-
-    onChange (e) {
-      console.log(e)
+    onChange (event) {
+      this.activeNames = event.mp.detail
     }
   }
 }
