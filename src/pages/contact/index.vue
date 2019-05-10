@@ -20,19 +20,12 @@
       </div>
     </div>
 
-    <van-tabs 
-    @active="active" 
-    swipe-threshold="5"
-    swipeable="true"
-    animated="true"
-    color="#00aeef"
-    >
+    <van-tabs color="#00aeef" animated="true" swipeable="true" swipe-threshold="5" @active="active">
         <van-tab tab-active-class="color:#00aeef" title="好友">
            <van-collapse :value="activeNames" @change="onChange" >
             <van-collapse-item title="特别关心" name="1">
               <div class="cu-list menu-avatar">
-                <div
-                class="cu-item"
+                <div class="cu-item" @click="enterChat"
                 :class="modalName=='move-box-'+ index?'move-cur':''"
                 v-for="(item,index) in 4"
                 :key="index"
@@ -40,10 +33,8 @@
                 @touchmove="ListTouchMove"
                 @touchend="ListTouchEnd"
                 :data-target="'move-box-' + index"
-                @click="enterChat"
                 >
-                <div
-                    class="cu-avatar round lg"
+                <div class="cu-avatar round lg"
                     :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
                 ></div>
                 <div class="content">
@@ -57,8 +48,7 @@
             </van-collapse-item>
             <van-collapse-item title="我的好友" name="2">
              <div class="cu-list menu-avatar">
-                <div
-                class="cu-item"
+                <div class="cu-item"
                 :class="modalName=='move-box-'+ index?'move-cur':''"
                 v-for="(item,index) in 4"
                 :key="index"
@@ -68,8 +58,7 @@
                 :data-target="'move-box-' + index"
                 @click="enterChat"
                 >
-                <div
-                    class="cu-avatar round lg"
+                <div class="cu-avatar round lg"
                     :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
                 ></div>
                 <div class="content">
@@ -83,8 +72,7 @@
             </van-collapse-item>
             <van-collapse-item title="朋友" name="3">
               <div class="cu-list menu-avatar">
-                <div
-                class="cu-item"
+                <div class="cu-item"
                 :class="modalName=='move-box-'+ index?'move-cur':''"
                 v-for="(item,index) in 4"
                 :key="index"
@@ -94,8 +82,7 @@
                 :data-target="'move-box-' + index"
                 @click="enterChat"
                 >
-                <div
-                    class="cu-avatar round lg"
+                <div class="cu-avatar round lg"
                     :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
                 ></div>
                 <div class="content">
@@ -109,8 +96,7 @@
             </van-collapse-item>
             <van-collapse-item title="同学" name="4">
               <div class="cu-list menu-avatar">
-                <div
-                class="cu-item"
+                <div class="cu-item"
                 :class="modalName=='move-box-'+ index?'move-cur':''"
                 v-for="(item,index) in 4"
                 :key="index"
@@ -120,8 +106,7 @@
                 :data-target="'move-box-' + index"
                 @click="enterChat"
                 >
-                <div
-                    class="cu-avatar round lg"
+                <div class="cu-avatar round lg"
                     :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
                 ></div>
                 <div class="content">
