@@ -1,37 +1,58 @@
 # mp-color-qq
+使用mpvue+colorui+vant-weapp+gateaway实现QQ的聊天功能
 
-> A Mpvue project
 
-## Build Setup
 
-``` bash
-# 初始化项目
-vue init mpvue/mpvue-quickstart myproject
-cd myproject
+# 进度
 
-# 安装依赖
-yarn
+~~聊天界面~~
 
-# 开发时构建
-npm dev
+~~消息列表~~
 
-# 打包构建
-npm build
+~~好友列表~~
 
-# 指定平台的开发时构建(微信、百度、头条、支付宝)
-npm dev:wx
-npm dev:swan
-npm dev:tt
-npm dev:my
+~~动态页面~~
 
-# 指定平台的打包构建
-npm build:wx
-npm build:swan
-npm build:tt
-npm build:my
+群聊
 
-# 生成 bundle 分析报告
-npm run build --report
+设备
+
+通讯录
+
+公众号
+
+
+
+# 使用
+
+克隆
+
+```
+git clone  -b mpvue-color-qq git@github.com:wangyang0210/Imitate-QQ-For-Mini-Program.git
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+安装
+
+```
+npm install
+```
+
+
+
+编译
+
+```
+npm run build
+```
+
+
+
+打开微信开发者工具,将`dist/wx`导入进去即可
+
+
+
+# 效果
+
+![](http://cache.wangyangyang.vip/QQ.gif)
