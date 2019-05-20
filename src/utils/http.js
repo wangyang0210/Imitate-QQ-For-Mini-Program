@@ -7,37 +7,24 @@
 // 	'Content-Type': 'application/x-www-form-urlencoded',
 // };
 import { getUserInfo } from './auth'
-export let baseUrl = 'https://xxx-admin.ecdpower.net/api/'
-// https://chat.wangyangyang.vip/
+export let baseUrl = 'https://chat.wangyangyang.vip/api/chat/'
 export let websocket_url = 'wss://chat.wangyangyang.vip/wss'
-export let api_url = 'https://chat.wangyangyang.vip/index.php/api/chat/'
 export function request (options) {
-  let token = global.globalData.token
   let userInfo = global.globalData.userInfo
   let needToken = options.needToken != false
   return new Promise((resolve, reject) => {
     wx.getNetworkType({
       success (ress) {
         const networkType = ress.networkType
-        if (networkType != 'none') {
-          if (!token && needToken) {
-            console.log('token is null')
-          }
-          if (token && needToken) {
-            options.data.token = token
-          }
+        if (networkType !== 'none') {
           if (userInfo && userInfo.id) {
-            if (userInfo.user_type) {
-              options.data.wid = userInfo.id
-            } else {
-              options.data.uid = userInfo.id
-            }
+            options.data.uid = userInfo.id
           }
-          let show = options.showLoading == true
+          let show = options.showLoading === true
           if (show) {
             mpvue.showLoading()
           }
-          let needGetUserInfo = options.needUserInfo != false
+          let needGetUserInfo = options.needUserInfo !== false
           if (needGetUserInfo) {
           }
           mpvue.request({
@@ -71,13 +58,12 @@ function formatResponse (result) {
   let msg = ''
   if (code === 200) {
     if (!result.data.status) {
-      if (result.data && result.data.data && result.data.data.code == 10001) {
+      if (result.data && result.data.data && result.data.data.code === 10001) {
         mpvue.showToast({
           icon: 'none',
           title: result.data.msg
         })
         mpvue.removeStorageSync('user_info')
-        mpvue.removeStorageSync('token')
         mpvue.removeStorageSync('hasLogin')
         setTimeout(() => {
           mpvue.navigateTo({ url: '/pages/auth/main' })
@@ -129,7 +115,7 @@ export function get_no_read_msg () {
 function message_request (options) {
   return new Promise((resolve, reject) => {
     mpvue.request({
-      url: api_url + options.url,
+      url: baseUrl + options.url,
       data: options.data,
       method: options.method || 'POST',
       header: {
@@ -150,11 +136,7 @@ function userLogin (userInfo) {
       nickname: userInfo.nickName,
       sex: userInfo.gender,
       avatar: userInfo.avatarUrl,
-      city: userInfo.city,
-      province: userInfo.province,
-      mobile: userInfo.mobile,
-      latitude: location.lat,
-      lng: location.lng
+      mobile: userInfo.mobile
     }
   }).then(res => {
     console.log(res)
@@ -165,6 +147,5 @@ export default {
   request,
   baseUrl,
   websocket_url,
-  api_url,
   get_no_read_msg
 }
