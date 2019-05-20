@@ -120,8 +120,31 @@
             </van-collapse-item>
           </van-collapse>
         </van-tab>
-        <van-tab title="群聊">内容 2</van-tab>
-        <van-tab title="设备">内容 3</van-tab>
+        <van-tab title="群聊"></van-tab>
+        <van-tab title="设备">
+            <div class="cu-list menu-avatar">
+                <div class="cu-item"
+                :class="modalName=='move-box-'+ index?'move-cur':''"
+                v-for="(item,index) in device"
+                :key="index"
+                @touchstart="ListTouchStart"
+                @touchmove="ListTouchMove"
+                @touchend="ListTouchEnd"
+                :data-target="'move-box-' + index"
+                @click="enterChat"
+                >
+                <div class="cu-avatar round lg"
+                    :class="item.icon"
+                ></div>
+                <div class="content">
+                    <div class="text-grey">{{item.name}}</div>
+                    <div class="text-gray text-sm">
+                    <text class=" margin-right-xs">{{item.desc}}</text>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </van-tab>
         <van-tab title="通讯录">内容 4</van-tab>
         <van-tab title="公众号">内容 5</van-tab>
     </van-tabs>
@@ -134,7 +157,19 @@ export default {
   data () {
     return {
       active: 0,
-      activeNames: ['1']
+      activeNames: ['1'],
+      device: [
+        {
+          'icon': 'iconfont icon-diannao1',
+          'name': '我的电脑',
+          'desc': '[离线]无需数据线,手机轻松传文件到电脑'
+        },
+        {
+          'icon': 'iconfont icon-faxianshebei',
+          'name': '发现新设备',
+          'desc': '搜索附近的设备,用QQ轻松连接设备'
+        }
+      ]
     }
   },
   methods: {
@@ -167,6 +202,15 @@ export default {
   font-size:9px;
   line-height:19px;
   margin-top:3px;
+}
+
+.iconfont {
+  color: #00aeef;
+  font-size: 36px;
+}
+
+.cu-avatar {
+  border-color: none;
 }
 
 </style>
