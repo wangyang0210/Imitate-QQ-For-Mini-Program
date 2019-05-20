@@ -8,9 +8,9 @@
 // };
 import { getUserInfo } from './auth'
 export let baseUrl = 'https://xxx-admin.ecdpower.net/api/'
-// 'http://106.14.140.179/api/'
-export let websocket_url = 'wss://xxx.ecdpower.net/wss'
-export let api_url = 'https://xxx.ecdpower.net/index.php/api/chat/'
+// https://chat.wangyangyang.vip/
+export let websocket_url = 'wss://chat.wangyangyang.vip/wss'
+export let api_url = 'https://chat.wangyangyang.vip/index.php/api/chat/'
 export function request (options) {
   let token = global.globalData.token
   let userInfo = global.globalData.userInfo
