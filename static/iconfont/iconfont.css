@@ -1,22 +1,22 @@
 @font-face {
     font-family: 'iconfont';  /* project id 1178369 */
-    src: url('//at.alicdn.com/t/font_1178369_79xp3ccsifd.eot');
-    src: url('//at.alicdn.com/t/font_1178369_79xp3ccsifd.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1178369_79xp3ccsifd.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1178369_79xp3ccsifd.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1178369_79xp3ccsifd.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1178369_79xp3ccsifd.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_1178369_ju0jyt06cmi.eot');
+    src: url('//at.alicdn.com/t/font_1178369_ju0jyt06cmi.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1178369_ju0jyt06cmi.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1178369_ju0jyt06cmi.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1178369_ju0jyt06cmi.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1178369_ju0jyt06cmi.svg#iconfont') format('svg');
   }
 
-.iconfont {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-dong:before {
+  .iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-dong:before {
     content: "\e602";
   }
   
@@ -24,7 +24,7 @@
     content: "\e603";
   }
   
-  .icon-tubiaozhizuomoban:before {
+  .icon-renzheng:before {
     content: "\e63d";
   }
   
@@ -34,6 +34,10 @@
   
   .icon-qiqiu:before {
     content: "\e600";
+  }
+  
+  .icon-qq:before {
+    content: "\e60a";
   }
   
   .icon-diannao1:before {
@@ -56,16 +60,16 @@
     content: "\e609";
   }
   
+  .icon-yingyong:before {
+    content: "\e61a";
+  }
+  
   .icon-zhibo:before {
     content: "\e617";
   }
   
   .icon-shouqbula:before {
     content: "\e601";
-  }
-  
-  .icon-qq-team:before {
-    content: "\e63e";
   }
   
   .icon-shexiangji1:before {
@@ -76,10 +80,7 @@
     content: "\e9a2";
   }
   
-  .icon-qq-anquanzhongxin:before {
-    content: "\eb49";
-  }
-  
-  .icon-icon_faxianshebei:before {
+  .icon-device:before {
     content: "\e63f";
   }
+  
