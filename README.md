@@ -13,13 +13,19 @@
 
 ~~动态页面~~
 
-群聊
+~~群聊~~
 
-设备
+~~设备~~
 
-通讯录
+~~通讯录~~
 
-公众号
+~~公众号~~
+
+~~后台部署~~
+
+~~websocket封装~~
+
+~~请求封装~~
 
 
 
@@ -55,4 +61,4 @@ npm run build
 
 # 效果
 
-![](http://cache.wangyangyang.vip/QQ.gif)
+![](http://cache.wangyangyang.vip/QQ123.gif)

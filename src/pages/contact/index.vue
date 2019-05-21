@@ -145,8 +145,39 @@
                 </div>
             </div>
         </van-tab>
-        <van-tab title="通讯录">内容 4</van-tab>
-        <van-tab title="公众号">内容 5</van-tab>
+        <van-tab title="通讯录">
+            <div class="cu-list menu bg-white">
+                <div class="cu-item arrow solid-bottom">
+                    <div class="content">
+                    <text class="text-black text-df text-bold">通讯录</text>
+                    </div>
+                    <div class="action">
+						<text class="text-grey text-sm">未启用</text>
+					</div>
+                </div>
+            </div>
+        </van-tab>
+        <van-tab title="公众号">
+            
+            <div class="cu-list menu-avatar bg-white margin-fix" v-for="(val,key) in accounts"  :key="key">
+              <div class="padding">{{val.index}}</div>
+                <div class="cu-item "
+                :class="modalName=='move-box-'+ index?'move-cur':''"
+                v-for="(item,index) in val.content"
+                :key="index"
+                :data-target="'move-box-' + index"
+                @click="enterChat"
+                >
+                <div class="cu-avatar round "
+                     :class="item.icon"
+                ></div>
+                <div class="content">
+                    <div class="text-grey">{{item.text}} <span :class="item.auth"></span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </van-tab>
     </van-tabs>
     
   </div>
@@ -165,9 +196,65 @@ export default {
           'desc': '[离线]无需数据线,手机轻松传文件到电脑'
         },
         {
-          'icon': 'iconfont icon-faxianshebei',
+          'icon': 'iconfont icon-device',
           'name': '发现新设备',
           'desc': '搜索附近的设备,用QQ轻松连接设备'
+        }
+      ],
+      accounts: [
+        {
+          'index': 'H',
+          'content': [
+            {
+              'icon': 'iconfont icon-dong',
+              'text': '好友动态'
+            }
+          ]
+        },
+        {
+          'index': 'Q',
+          'content': [
+            {
+              'icon': 'iconfont icon-qq',
+              'text': 'QQ团队',
+              'auth': 'iconfont icon-renzheng'
+            },
+            {
+              'icon': 'iconfont icon-musics',
+              'text': 'QQ音乐',
+              'auth': 'iconfont icon-renzheng'
+            },
+            {
+              'icon': 'iconfont icon-yundong',
+              'text': 'QQ运动',
+              'auth': 'iconfont icon-renzheng'
+            },
+            {
+              'icon': 'iconfont icon-youxi',
+              'text': 'QQ运动',
+              'auth': 'iconfont icon-renzheng'
+            }
+          ]
+        },
+        {
+          'index': 'T',
+          'content': [
+            {
+              'icon': 'iconfont icon-tengxunketang',
+              'text': '腾讯课堂',
+              'auth': 'iconfont icon-renzheng'
+            }
+          ]
+        },
+        {
+          'index': 'Y',
+          'content': [
+            {
+              'icon': 'iconfont icon-yingyong',
+              'text': '应用中心',
+              'auth': 'iconfont icon-renzheng'
+            }
+          ]
         }
       ]
     }
@@ -204,13 +291,47 @@ export default {
   margin-top:3px;
 }
 
-.iconfont {
-  color: #00aeef;
-  font-size: 36px;
+.icon-diannao1, .icon-device{
+  color:#12b7f4;
+  font-size: 48px;
 }
 
 .cu-avatar {
-  border-color: none;
+  background-color: #fff;
 }
+
+.icon-dong, 
+.icon-tengxunketang,
+.icon-yundong, 
+.icon-youxi,
+.icon-musics,
+.icon-qq,
+.icon-yingyong {
+  font-size: 32px;
+}
+.icon-dong,
+.icon-yingyong {
+  color: #ffd700;
+}
+
+.icon-renzheng {
+  color: #ff9800;
+}
+
+.icon-youxi,
+.icon-tengxunketang,
+.icon-yundong,
+.icon-qq {
+  color: #00aeef;
+}
+
+.icon-musics {
+  color: #31c27c;
+}
+
+.margin-fix {
+  margin-top:-15px;
+}
+
 
 </style>
