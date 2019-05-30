@@ -1,32 +1,6 @@
 # mp-color-qq
 使用mpvue+colorui+vant-weapp+gateaway实现QQ的聊天功能
 
-
-
-# 技术
-
-LNMP架构
-
-### 前端
-
-```
-框架： mpvue
-UI：  color-ui | vant-weapp
-```
-
-
-
-### 后端
-
-```
-框架 : TP5.1
-通讯 : GatewayWorker
-```
-
-
-
-
-
 # 进度
 
 ~~聊天界面~~
