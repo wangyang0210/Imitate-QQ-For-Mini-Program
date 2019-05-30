@@ -11,7 +11,7 @@
         <div
           class="cu-item"
           :class="modalName=='move-box-'+ index?'move-cur':''"
-          v-for="(item,index) in 8"
+          v-for="(item,index) in 2"
           :key="index"
           @touchstart="ListTouchStart"
           @touchmove="ListTouchMove"
@@ -44,14 +44,35 @@
 </template>
 
 <script>
+import { baseUrl } from '@/utils/http'
 export default {
   data () {
     return {
       modalName: null,
       listTouchStart: 0,
-      listTouchDirection: null
+      listTouchDirection: null,
+      id: 1
     }
   },
+  mounted () {
+    // initSocket(2,1)
+    this.query()
+  },
+  // onLoad () {
+  //   // 轮询
+  //   this.interval = setInterval(() => {
+  //     this.query()
+  //   }, 3000)
+  // },
+  // onShow () {
+  //   // console.log(this.interval);
+  //   if (!this.interval) {
+  //     this.query()
+  //     this.interval = setInterval(() => {
+  //       this.query()
+  //     }, 3000)
+  //   }
+  // },
   methods: {
     showModal (e) {
       this.modalName = e.currentTarget.dataset.target
@@ -84,7 +105,7 @@ export default {
     // 进入聊天界面
     enterChat () {
       mpvue.navigateTo({url: '/pages/chat/main'})
-    }
+    },
 
     // 搜索框
     // searchIcon (e) {
@@ -100,7 +121,26 @@ export default {
     //     }
     //   }
     //   this.icon = list
-    // }
+    // },
+    query () {
+      const that = this
+      const datas = []
+      that.http({
+        url: baseUrl + 'get_list',
+        data: {
+          id: that.id
+        }
+      }).then(res => {
+        console.log(res)
+        let data = {}
+        res.forEach(item => {
+          console.log(item)
+          data = Object.assign(item, JSON.parse(item.last_message))
+          datas.push(data)
+        })
+        that.messageList = datas
+      })
+    }
   }
 }
 </script>

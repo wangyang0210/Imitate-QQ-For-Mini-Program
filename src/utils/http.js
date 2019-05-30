@@ -6,26 +6,17 @@
 // let headers = {
 // 	'Content-Type': 'application/x-www-form-urlencoded',
 // };
-import { getUserInfo } from './auth'
 export let baseUrl = 'https://chat.wangyangyang.vip/api/chat/'
 export let websocket_url = 'wss://chat.wangyangyang.vip/wss'
 export function request (options) {
-  let userInfo = global.globalData.userInfo
-  let needToken = options.needToken != false
   return new Promise((resolve, reject) => {
     wx.getNetworkType({
       success (ress) {
         const networkType = ress.networkType
         if (networkType !== 'none') {
-          if (userInfo && userInfo.id) {
-            options.data.uid = userInfo.id
-          }
           let show = options.showLoading === true
           if (show) {
             mpvue.showLoading()
-          }
-          let needGetUserInfo = options.needUserInfo !== false
-          if (needGetUserInfo) {
           }
           mpvue.request({
             url: options.url.indexOf('http') > -1 ? options.url : baseUrl + options.url,
@@ -35,6 +26,7 @@ export function request (options) {
               'content-type': 'application/json'
             },
             success (res) {
+              console.log(res)
               resolve(formatResponse(res))
               if (show) {
                 mpvue.hideLoading()
@@ -54,6 +46,7 @@ export function request (options) {
 }
 
 function formatResponse (result) {
+  console.log(result)
   let code = result.statusCode
   let msg = ''
   if (code === 200) {
@@ -63,11 +56,11 @@ function formatResponse (result) {
           icon: 'none',
           title: result.data.msg
         })
-        mpvue.removeStorageSync('user_info')
-        mpvue.removeStorageSync('hasLogin')
-        setTimeout(() => {
-          mpvue.navigateTo({ url: '/pages/auth/main' })
-        }, 1500)
+        // mpvue.removeStorageSync('user_info')
+        // mpvue.removeStorageSync('hasLogin')
+        // setTimeout(() => {
+        //   mpvue.navigateTo({ url: '/pages/auth/main' })
+        // }, 1500)
       }
     }
     return result.data
@@ -78,12 +71,12 @@ function formatResponse (result) {
 export function get_no_read_msg () {
   clearTimeout(global.globalData.read_message_settimeout)
   const id = global.globalData.userInfo.id
-  const hasLogin = global.globalData.hasLogin
+  //   const hasLogin = global.globalData.hasLogin
   wx.getNetworkType({
     success (res) {
       const networkType = res.networkType
-      if (networkType != 'none') {
-        if (hasLogin && id) {
+      if (networkType !== 'none') {
+        if (id) {
           message_request({
             url: 'isRead',
             data: {
@@ -125,21 +118,6 @@ function message_request (options) {
         resolve(res)
       }
     })
-  })
-}
-
-function userLogin (userInfo) {
-  let location = mpvue.getStorageSync('user_location')
-  request({
-    url: 'User/userLogin',
-    data: {
-      nickname: userInfo.nickName,
-      sex: userInfo.gender,
-      avatar: userInfo.avatarUrl,
-      mobile: userInfo.mobile
-    }
-  }).then(res => {
-    console.log(res)
   })
 }
 
