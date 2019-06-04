@@ -26,7 +26,6 @@ export function request (options) {
               'content-type': 'application/json'
             },
             success (res) {
-              console.log(res)
               resolve(formatResponse(res))
               if (show) {
                 mpvue.hideLoading()
@@ -46,7 +45,6 @@ export function request (options) {
 }
 
 function formatResponse (result) {
-  console.log(result)
   let code = result.statusCode
   let msg = ''
   if (code === 200) {

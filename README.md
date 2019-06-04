@@ -19,6 +19,9 @@
 
 ~~公众号~~
 
+![](http://cache.wangyangyang.vip/QQ123.gif)
+
+
 ~~后台部署~~
 
 ~~websocket封装~~
@@ -26,6 +29,14 @@
 ~~请求封装~~
 
 
+
+
+
+
+
+~~动态获取消息列表完成~~
+
+![1559630644167](http://cache.wangyangyang.vip/%E5%8A%A8%E6%80%81%E5%88%97%E8%A1%A8.png)
 
 # 使用
 
@@ -54,9 +65,3 @@ npm run build
 
 
 打开微信开发者工具,将`dist/wx`导入进去即可
-
-
-
-# 效果
-
-![](http://cache.wangyangyang.vip/QQ123.gif)
