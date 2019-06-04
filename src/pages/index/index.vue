@@ -97,7 +97,9 @@ export default {
     },
 
     listDel (e) {
-      console.log(e)
+      const that = this
+      let index = e.currentTarget.dataset.eventid.substr(e.currentTarget.dataset.eventid.length - 1, 1)
+      that.messageList.splice(index, 1)
     },
     // 搜索框
     // searchIcon (e) {
