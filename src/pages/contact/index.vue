@@ -23,7 +23,10 @@
     <van-tabs color="#00aeef" animated="true" swipeable="true" swipe-threshold="5" @active="active">
         <van-tab tab-active-class="color:#00aeef" title="好友">
            <van-collapse :value="activeNames" @change="onChange" >
-            <van-collapse-item title="特别关心" name="1">
+            <van-collapse-item 
+            title="特别关心" 
+            name="1"
+            >
               <div class="cu-list menu-avatar">
                 <div class="cu-item" @click="enterChat"
                 :class="modalName=='move-box-'+ index?'move-cur':''"
