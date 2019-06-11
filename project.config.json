@@ -12,7 +12,7 @@
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
 	"appid": "wx465a3f2ededbc456",
-	"projectname": "mpqq",
+	"projectname": "qq",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"libVersion": "2.6.6",

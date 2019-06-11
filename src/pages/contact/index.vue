@@ -22,100 +22,27 @@
 
     <van-tabs color="#00aeef" animated="true" swipeable="true" swipe-threshold="5" @active="active">
         <van-tab tab-active-class="color:#00aeef" title="好友">
-           <van-collapse :value="activeNames" @change="onChange" >
-            <van-collapse-item 
-            title="特别关心" 
-            name="1"
-            >
-              <div class="cu-list menu-avatar">
-                <div class="cu-item" @click="enterChat"
-                :class="modalName=='move-box-'+ index?'move-cur':''"
-                v-for="(item,index) in 4"
-                :key="index"
-                @touchstart="ListTouchStart"
-                @touchmove="ListTouchMove"
-                @touchend="ListTouchEnd"
-                :data-target="'move-box-' + index"
-                >
-                <div class="cu-avatar round lg"
-                    :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
-                ></div>
-                <div class="content">
-                    <div class="text-grey">王洋</div>
-                    <div class="text-gray text-sm">
-                    <text class=" margin-right-xs">学无止境,谦卑而行</text>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </van-collapse-item>
-            <van-collapse-item title="我的好友" name="2">
-             <div class="cu-list menu-avatar">
-                <div class="cu-item"
-                :class="modalName=='move-box-'+ index?'move-cur':''"
-                v-for="(item,index) in 4"
-                :key="index"
-                @touchstart="ListTouchStart"
-                @touchmove="ListTouchMove"
-                @touchend="ListTouchEnd"
-                :data-target="'move-box-' + index"
+           <van-collapse :value="activeNames" @change="onChange" v-for="(item, index) in friendList" :key="index">
+            <van-collapse-item :title="item.group" :name="item.groupId" >
+              <div class="cu-list menu-avatar ">
+                <div 
+                class="cu-item solid-bottom" 
                 @click="enterChat"
-                >
-                <div class="cu-avatar round lg"
-                    :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
-                ></div>
-                <div class="content">
-                    <div class="text-grey">明月</div>
-                    <div class="text-gray text-sm">
-                    <text class=" margin-right-xs">生活与你都不可缺少</text>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </van-collapse-item>
-            <van-collapse-item title="朋友" name="3">
-              <div class="cu-list menu-avatar">
-                <div class="cu-item"
                 :class="modalName=='move-box-'+ index?'move-cur':''"
-                v-for="(item,index) in 4"
-                :key="index"
+                v-for="(item,_index) in item.list"
+                :key="_index"
                 @touchstart="ListTouchStart"
                 @touchmove="ListTouchMove"
                 @touchend="ListTouchEnd"
-                :data-target="'move-box-' + index"
-                @click="enterChat"
+                :data-target="'move-box-' + _index"
                 >
                 <div class="cu-avatar round lg"
-                    :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
+                    :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (_index+2) +'.jpg)'}]"
                 ></div>
                 <div class="content">
-                    <div class="text-grey">李四</div>
+                    <div class="text-grey">{{item.nickname}}</div>
                     <div class="text-gray text-sm">
-                    <text class=" margin-right-xs">想念和张三搞基的生活~</text>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </van-collapse-item>
-            <van-collapse-item title="同学" name="4">
-              <div class="cu-list menu-avatar">
-                <div class="cu-item"
-                :class="modalName=='move-box-'+ index?'move-cur':''"
-                v-for="(item,index) in 4"
-                :key="index"
-                @touchstart="ListTouchStart"
-                @touchmove="ListTouchMove"
-                @touchend="ListTouchEnd"
-                :data-target="'move-box-' + index"
-                @click="enterChat"
-                >
-                <div class="cu-avatar round lg"
-                    :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (index+2) +'.jpg)'}]"
-                ></div>
-                <div class="content">
-                    <div class="text-grey">伊泽瑞尔</div>
-                    <div class="text-gray text-sm">
-                    <text class=" margin-right-xs">等我回来一个打十个</text>
+                    <text class=" margin-right-xs">{{item.desc}}</text>
                     </div>
                 </div>
                 </div>
@@ -191,7 +118,7 @@ export default {
   data () {
     return {
       active: 0,
-      activeNames: ['1'],
+      activeNames: [],
       device: [
         {
           'icon': 'iconfont icon-diannao1',
@@ -256,6 +183,62 @@ export default {
               'icon': 'iconfont icon-yingyong',
               'text': '应用中心',
               'auth': 'iconfont icon-renzheng'
+            }
+          ]
+        }
+      ],
+      friendList: [
+        {
+          'group': '特别关心',
+          'groupId': 1,
+          'list': [
+            {
+              'avatar': '',
+              'nickname': '小名',
+              'desc': '小了白了兔,白了白又白~'
+            }
+          ]
+        },
+        {
+          'group': '我的好友',
+          'groupId': 2,
+          'list': [
+            {
+              'avatar': '',
+              'nickname': '小王',
+              'desc': '123,木头人不许说话不许动'
+            },
+            {
+              'avatar': '',
+              'nickname': '小李',
+              'desc': '学无止境,谦卑而行'
+            },
+            {
+              'avatar': '',
+              'nickname': '小赵',
+              'desc': '学无止境,谦卑而行'
+            }
+          ]
+        },
+        {
+          'group': '朋友',
+          'groupId': 3,
+          'list': [
+            {
+              'avatar': '',
+              'nickname': '小王',
+              'desc': '学无止境,谦卑而行'
+            }
+          ]
+        },
+        {
+          'group': '同学',
+          'groupId': 4,
+          'list': [
+            {
+              'avatar': '',
+              'nickname': '小王',
+              'desc': '学无止境,谦卑而行'
             }
           ]
         }
@@ -336,5 +319,8 @@ export default {
   margin-top:-15px;
 }
 
+.van-collapse>.van-collapse-item>.van-collapse-item__content {
+    padding: 0px !important;
+}
 
 </style>

@@ -9,7 +9,7 @@
     <scroll-view :scroll-y="modalName==null" class="page" :class="modalName!=null?'show':''">
       <div class="cu-list menu-avatar">
         <div
-          class="cu-item"
+          class="cu-item solid-bottom"
           :class="modalName=='move-box-'+ index?'move-cur':''"
           v-for="(item,index) in messageList"
           :key="index"
