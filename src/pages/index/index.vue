@@ -119,7 +119,7 @@ export default {
     query () {
       const that = this
       that.http({
-        url: baseUrl + 'get_list',
+        url: baseUrl + 'getMessageList',
         data: {
           id: that.id
         }

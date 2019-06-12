@@ -21,9 +21,9 @@
     </div>
 
     <van-tabs color="#00aeef" animated="true" swipeable="true" swipe-threshold="5" @active="active">
-        <van-tab tab-active-class="color:#00aeef" title="好友">
-           <van-collapse :value="activeNames" @change="onChange" v-for="(item, index) in friendList" :key="index">
-            <van-collapse-item :title="item.group" :name="item.groupId" class="solid-bottom">
+        <van-tab tab-active-class="color:#00aeef" title="好友" >
+           <van-collapse :value="activeNames" @change="onChange" v-for="(item, index) in friendList" :key="index" custom-class="solid_bottom">
+            <van-collapse-item :title="item.group" :name="item.groupId" :border="false">
               <div class="cu-list menu-avatar ">
                 <div 
                 class="cu-item solid-bottom" 
@@ -114,6 +114,7 @@
 </template>
 
 <script>
+import { baseUrl } from '@/utils/http'
 export default {
   data () {
     return {
@@ -245,6 +246,9 @@ export default {
       ]
     }
   },
+  mounted () {
+    this.query()
+  },
   methods: {
     // searchIcon (e) {
     //   let key = e.detail.value.toLowerCase()
@@ -252,7 +256,7 @@ export default {
     //   for (let i = 0; i < list.length; i++) {
     //     let a = key
     //     let b = list[i].name.toLowerCase()
-    //     if (b.search(a) !== -1) { 
+    //     if (b.search(a) !== -1) {
     //       list[i].isShow = true
     //     } else {
     //       list[i].isShow = false
@@ -262,6 +266,18 @@ export default {
     // }
     onChange (event) {
       this.activeNames = event.mp.detail
+    },
+    query () {
+      const that = this
+      that.http({
+        url: baseUrl + 'getFriendList',
+        data: {
+          id: that.id
+        }
+      }).then(res => {
+        that.messageList = res.data
+        console.log(that.messageList)
+      })
     }
   }
 }
