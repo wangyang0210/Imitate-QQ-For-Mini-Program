@@ -23,7 +23,7 @@
     <van-tabs color="#00aeef" animated="true" swipeable="true" swipe-threshold="5" @active="active">
         <van-tab tab-active-class="color:#00aeef" title="好友">
            <van-collapse :value="activeNames" @change="onChange" v-for="(item, index) in friendList" :key="index">
-            <van-collapse-item :title="item.group" :name="item.groupId" >
+            <van-collapse-item :title="item.group" :name="item.groupId" class="solid-bottom">
               <div class="cu-list menu-avatar ">
                 <div 
                 class="cu-item solid-bottom" 
@@ -252,7 +252,7 @@ export default {
     //   for (let i = 0; i < list.length; i++) {
     //     let a = key
     //     let b = list[i].name.toLowerCase()
-    //     if (b.search(a) !== -1) {
+    //     if (b.search(a) !== -1) { 
     //       list[i].isShow = true
     //     } else {
     //       list[i].isShow = false
@@ -319,8 +319,5 @@ export default {
   margin-top:-15px;
 }
 
-.van-collapse>.van-collapse-item>.van-collapse-item__content {
-    padding: 0px !important;
-}
 
 </style>
