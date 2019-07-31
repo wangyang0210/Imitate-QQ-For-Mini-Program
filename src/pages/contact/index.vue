@@ -22,9 +22,9 @@
 
     <van-tabs color="#00aeef" animated="true" swipeable="true" swipe-threshold="5" @active="active">
         <van-tab tab-active-class="color:#00aeef" title="好友" >
-           <van-collapse :value="activeNames" @change="onChange" v-for="(item, index) in friendList" :key="index" custom-class="solid_bottom">
-            <van-collapse-item :title="item.group" :name="item.groupId" :border="false">
-              <div class="cu-list menu-avatar ">
+           <van-collapse :value="activeNames" @change="onChange" v-for="(item, index) in friendList" :key="index" >
+            <van-collapse-item :title="item.gname" :name="item.gid" :border="false" custom-class="solid_bottom">
+              <div class=" cu-list menu-avatar ">
                 <div 
                 class="cu-item solid-bottom" 
                 @click="enterChat"
@@ -36,8 +36,9 @@
                 @touchend="ListTouchEnd"
                 :data-target="'move-box-' + _index"
                 >
-                <div class="cu-avatar round lg"
-                    :style="[{backgroundImage:'url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100'+ (_index+2) +'.jpg)'}]"
+                <div 
+                    class="cu-avatar round lg"
+                    :style="[{backgroundImage:'url('+ item.avatar +')'}]"
                 ></div>
                 <div class="content">
                     <div class="text-grey">{{item.nickname}}</div>
@@ -118,6 +119,7 @@ import { baseUrl } from '@/utils/http'
 export default {
   data () {
     return {
+      id: 1,
       active: 0,
       activeNames: [],
       device: [
@@ -188,62 +190,7 @@ export default {
           ]
         }
       ],
-      friendList: [
-        {
-          'group': '特别关心',
-          'groupId': 1,
-          'list': [
-            {
-              'avatar': '',
-              'nickname': '小名',
-              'desc': '小了白了兔,白了白又白~'
-            }
-          ]
-        },
-        {
-          'group': '我的好友',
-          'groupId': 2,
-          'list': [
-            {
-              'avatar': '',
-              'nickname': '小王',
-              'desc': '123,木头人不许说话不许动'
-            },
-            {
-              'avatar': '',
-              'nickname': '小李',
-              'desc': '学无止境,谦卑而行'
-            },
-            {
-              'avatar': '',
-              'nickname': '小赵',
-              'desc': '学无止境,谦卑而行'
-            }
-          ]
-        },
-        {
-          'group': '朋友',
-          'groupId': 3,
-          'list': [
-            {
-              'avatar': '',
-              'nickname': '小王',
-              'desc': '学无止境,谦卑而行'
-            }
-          ]
-        },
-        {
-          'group': '同学',
-          'groupId': 4,
-          'list': [
-            {
-              'avatar': '',
-              'nickname': '小王',
-              'desc': '学无止境,谦卑而行'
-            }
-          ]
-        }
-      ]
+      friendList: []
     }
   },
   mounted () {
@@ -275,7 +222,7 @@ export default {
           id: that.id
         }
       }).then(res => {
-        that.messageList = res.data
+        that.friendList = res.data
         console.log(that.messageList)
       })
     }

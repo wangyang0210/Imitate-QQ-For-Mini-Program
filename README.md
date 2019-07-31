@@ -2,6 +2,8 @@
 
 使用mpvue+colorui+vant-weapp+gateaway实现QQ的聊天功能
 
+![](http://cache.wangyangyang.vip/qq.gif)
+
 
 # 使用
 
@@ -32,8 +34,16 @@ npm run build
 
 # 版本更新日志
 
+## 2019-07-31
+
+```
+1. 好友列表
+```
+
+
 
 ##  2019-6-4
+
 ```
 1. 动态获取消息列表
 2.置顶
@@ -74,7 +84,6 @@ npm run build
 1. 项目成立
 2. 消息列表
 ```
-
 
 
 

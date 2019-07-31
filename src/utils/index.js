@@ -22,53 +22,6 @@ export function formatTime (date) {
   return `${t1} ${t2}`
 }
 
-// 设置底部tabbar
-// export function setTabbar (type) {
-//   let tabBarItems = []
-//   if (type == 1) {
-//     tabBarItems = [{
-//       'text': '消息',
-//       'pagePath': 'pages/card/main',
-//       'iconPath': 'static/tabs/message.png',
-//       'selectedIconPath': 'static/tabs/message-active.png'
-//     }, {
-//       'text': '客户',
-//       'pagePath': 'pages/market/main',
-//       'iconPath': 'static/tabs/customer.png',
-//       'selectedIconPath': 'static/tabs/customer-active.png'
-//     }, {
-//       'text': '个人中心',
-//       'pagePath': 'pages/center/main',
-//       'iconPath': 'static/tabs/emp.png',
-//       'selectedIconPath': 'static/tabs/emp-active.png'
-//     }]
-//   } else if (type == 0) {
-//     [{
-//       'text': '名片',
-//       'pagePath': 'pages/card/main',
-//       'iconPath': 'static/tabs/card.png',
-//       'selectedIconPath': 'static/tabs/card-active.png'
-//     }, {
-//       'text': '保险超市',
-//       'pagePath': 'pages/market/main',
-//       'iconPath': 'static/tabs/market.png',
-//       'selectedIconPath': 'static/tabs/market-active.png'
-//     }, {
-//       'text': '会员中心',
-//       'pagePath': 'pages/center/main',
-//       'iconPath': 'static/tabs/center.png',
-//       'selectedIconPath': 'static/tabs/center-active.png'
-//     }]
-//   }
-//   tabBarItems.forEach((item, index) => {
-//     wx.setTabBarItem({
-//       index: index + 1,
-//       text: item.text,
-//       iconPath: item.iconPath,
-//       selectedIconPath: item.selectedIconPath
-//     })
-//   })
-// }
 
 /* 去掉首尾空格 */
 export function trimSpace (str) {
